@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FishMaster - Redirecting</title>
+		<script>
+			// Получаем язык браузера
+			const userLang = navigator.language || navigator.userLanguage;
+
+			// Перенаправляем на соответствующую версию
+			if (userLang.startsWith('uk')) {
+				window.location.href = '/ua/index.html'; // Украинский
+			} else if (userLang.startsWith('da')) {
+				window.location.href = '/da/index.html'; // Датский
+			} else {
+				window.location.href = '/ua/index.html'; // Язык по умолчанию (Украинский)
+			}
+		</script>
+	</head>
+	<body>
+		<p>Redirecting...</p>
+	</body>
+</html>

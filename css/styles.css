@@ -1,0 +1,73 @@
+/* Общие стили для сайта */
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	background-color: #f4f4f4;
+}
+
+/* Стили для заголовка */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #0077b6;
+	color: white;
+}
+
+.logo img {
+	max-height: 50px;
+}
+
+.language-switcher a {
+	text-decoration: none;
+	color: white;
+	margin: 0 5px;
+}
+
+.language-switcher a.active {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+	text-align: center;
+	padding: 50px 20px;
+	background: url('/images/hero.jpg') no-repeat center;
+	background-size: cover;
+	color: white;
+}
+
+.hero h1 {
+	font-size: 2.5rem;
+}
+
+.hero p {
+	font-size: 1.2rem;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #ff6f61;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+	text-align: center;
+	padding: 20px;
+	background-color: #003049;
+	color: white;
+}
+
+.footer .socials a {
+	color: white;
+	text-decoration: none;
+	margin: 0 10px;
+}
