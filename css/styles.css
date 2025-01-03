@@ -6,20 +6,35 @@ body {
 	background-color: #f4f4f4;
 }
 
-/* Стили для заголовка */
+/* Хедер */
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 10px 20px;
 	background-color: #0077b6;
 	color: white;
+
+	position: sticky; /* Липкое позиционирование */
+	top: 0; /* Хедер прилипает к верхней части окна */
+	z-index: 1000; /* Хедер будет выше других элементов */
+	background-color: #0077b6; /* Фон хедера */
+	color: white; /* Цвет текста */
+	padding: 10px 20px; /* Отступы внутри хедера */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень под хедером */
 }
 
+/* Логотип слева */
 .logo img {
 	max-height: 50px;
+	display: block;
 }
-
+/* Правая часть хедера */
+.header-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
 .language-switcher a {
 	text-decoration: none;
 	color: white;
@@ -70,4 +85,221 @@ body {
 	color: white;
 	text-decoration: none;
 	margin: 0 10px;
+}
+/* Стили для бургер-меню */
+.burger-menu {
+	position: absolute; /* Абсолютное позиционирование */
+	top: 10px; /* Отступ от верхнего края */
+	right: 10px; /* Отступ от правого края */
+	display: flex; /* Flexbox для вертикальных полос */
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px; /* Ширина бургер-меню */
+	height: 20px; /* Высота бургер-меню */
+	cursor: pointer; /* Указатель мыши */
+	z-index: 1000; /* Поверх других элементов */
+}
+
+.burger-menu span {
+	display: block;
+	width: 100%; /* Полоса занимает всю ширину бургер-меню */
+	height: 3px; /* Высота каждой полосы */
+	background-color: white; /* Цвет полос */
+	border-radius: 2px; /* Слегка скругляем углы */
+}
+/* Скрываем мобильное меню по умолчанию */
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	right: -100%; /* Прячем меню за пределами экрана */
+	width: 250px;
+	height: 100%;
+	background-color: #0077b6;
+	color: white;
+	padding: 20px;
+	transition: right 0.3s ease; /* Анимация выезда */
+	z-index: 999; /* Поверх других элементов */
+}
+
+.mobile-menu ul {
+	list-style: none;
+	padding: 0;
+}
+
+.mobile-menu ul li {
+	margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.mobile-menu.active {
+	right: 0; /* Показываем меню */
+}
+/* Стили для контактной информации */
+.contact-info p {
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
+}
+
+.contact-info i {
+	margin-right: 10px;
+	color: white;
+	font-size: 16px;
+}
+
+.contact-info a {
+	color: white;
+	text-decoration: none;
+}
+
+.contact-info a:hover {
+	text-decoration: underline; /* Добавляем подчеркивание при наведении */
+}
+.language-switcher {
+	margin-top: 10px;
+	display: flex;
+	gap: 10px;
+}
+
+.language-switcher .btn {
+	padding: 10px 20px;
+	background-color: #ff6f61;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.language-switcher .btn:hover {
+	background-color: #e65550;
+}
+
+@media (max-width: 768px) {
+	.header {
+		flex-direction: row; /* Элементы располагаются вертикально */
+		align-items: center;
+		padding: 0px 40px;
+	}
+
+	.header-right {
+		display: flex;
+		flex-direction: column;
+		align-items: center; /* Центрируем элементы справа */
+		justify-content: center; /* Центрируем элементы внутри */
+		width: 100%; /* Занимаем всю доступную ширину */
+	}
+
+	.language-switcher {
+		display: flex;
+		flex-direction: column; /* Кнопки одна под другой */
+		justify-content: center; /* Центрируем кнопки */
+		gap: 10px; /* Отступы между кнопками */
+		margin-top: 10px;
+		align-items: center; /* Центрируем кнопки по горизонтали */
+	}
+	.contact-info {
+		display: flex;
+		flex-direction: column; /* Выводим адрес в две строки */
+		gap: 10px;
+		text-align: center; /* Центрируем текст в контактной информации */
+	}
+
+	.contact-info p {
+		display: block; /* Разделяем элементы на две строки */
+	}
+
+	.language-switcher .btn {
+		width: 100%; /* Кнопки растягиваются на всю ширину */
+		text-align: center;
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+	.header-right {
+		align-items: flex-start; /* Контактная информация и язык выравниваются слева */
+	}
+
+	.contact-info {
+		display: flex;
+		flex-wrap: wrap; /* Телефон и адрес в одну строку */
+		gap: 20px;
+	}
+
+	.language-switcher {
+		flex-direction: column; /* Кнопки одна под другой */
+		margin-top: 10px;
+	}
+
+	.language-switcher .btn {
+		width: auto;
+	}
+}
+@media (min-width: 1024px) {
+	.header {
+		flex-direction: row; /* Логотип слева, всё остальное справа */
+	}
+
+	.header-right {
+		flex-direction: column; /* Контакты сверху, языковой переключатель снизу */
+		align-items: flex-end;
+	}
+
+	.contact-info {
+		display: flex;
+		flex-wrap: nowrap; /* Телефон и адрес в строку */
+		gap: 20px;
+	}
+
+	.language-switcher {
+		flex-direction: row; /* Кнопки рядом друг с другом */
+		gap: 10px;
+		margin-top: 10px;
+	}
+}
+/* Секция "Інформація про замовлення" */
+.order-info {
+	background-color: #f8f9fa; /* Светлый фон */
+	padding: 40px 20px; /* Внутренние отступы */
+	color: #333; /* Основной цвет текста */
+}
+
+.order-info__container {
+	max-width: 800px; /* Максимальная ширина контейнера */
+	margin: 0 auto; /* Выравнивание по центру */
+}
+
+.order-info__title {
+	text-align: center; /* Заголовок по центру */
+	font-size: 24px; /* Размер текста заголовка */
+	margin-bottom: 20px; /* Отступ снизу */
+	color: #0077b6; /* Цвет заголовка */
+}
+
+.order-info__list {
+	list-style: none; /* Убираем стандартные маркеры списка */
+	padding: 0; /* Убираем отступы */
+	margin: 0; /* Убираем внешние отступы */
+}
+
+.order-info__item {
+	margin-bottom: 15px; /* Отступ между пунктами */
+	padding-left: 25px; /* Отступ для маркера */
+	position: relative; /* Для позиционирования маркера */
+	line-height: 1.6; /* Высота строки */
+}
+
+/* Кастомный маркер */
+.order-info__item::before {
+	content: '✓'; /* Символ галочки */
+	position: absolute; /* Абсолютное позиционирование маркера */
+	left: 0; /* Расположение маркера слева */
+	top: 0; /* Выравнивание по вертикали */
+	color: #0077b6; /* Цвет маркера */
+	font-size: 18px; /* Размер маркера */
+	line-height: 1.6;
 }
